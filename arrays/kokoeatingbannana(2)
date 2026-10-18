@@ -1,0 +1,24 @@
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+      int min = 1;
+      int max = 0;
+
+        for (int pile : piles) {
+         max = Math.max(max, pile);
+               }
+       for(int i=min; i<=max; i++){
+         long sum =0;
+        for(int j=0; j<piles.length;j++){
+            int k = (piles[j] + i -1)/i;
+            
+            sum+=k;
+           
+       }
+        if(sum<=h){
+                return i;
+            }
+           
+        }
+        return -1;
+    }
+}
